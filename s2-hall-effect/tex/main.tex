@@ -41,7 +41,7 @@
 
 \begin{document}
 
-\preprint{APS/123-QED}
+% \preprint{APS/123-QED}
 
 \title{Hall Effect}
 % \thanks{A footnote to the article title}
@@ -57,8 +57,7 @@
 \date{\today}
 
 \begin{abstract}
-An article usually includes an abstract, a concise summary of the work
-covered at length in the main body of the article. 
+We observed the Hall effect in p-doped and n-doped germanium at room temperature and magnetic fields up to 156~mT. From a single-parameter fit of the Hall voltage $U_H = (R_H/d)\,I_s\,B$, we extract the Hall coefficient, carrier density, and mobility for both samples. The weak-field condition $\mu B \ll 1$ is confirmed, and the linear dependence $U_H \propto I \cdot B$ is verified experimentally.
 \end{abstract}
 
 \maketitle
@@ -67,169 +66,380 @@ covered at length in the main body of the article.
 
 \section{\label{sec:intro}Introduction}
 
-intro placeholder
+
+The Hall effect, discovered by Edwin Hall in 1879, is a fundamental phenomenon in condensed matter physics where a transverse voltage develops across a conductor carrying an electric current in the presence of a perpendicular magnetic field. This effect provides critical insights into the nature of charge carriers in materials. 
+
+In this work, we measure the Hall effect in doped germanium (Ge) samples both p-type and n-type to determine the Hall coefficient $R_H$, the charge carrier density, and the carrier mobility. By measuring the Hall voltage as a function of sample current at fixed magnetic field, we verify the proportionality $U_H \propto I \cdot B$ predicted by the Drude model and extract quantitative transport parameters. The results for p-Ge and n-Ge are compared with each other and with the case of undoped (intrinsic) Ge, where the nearly equal concentrations of electrons and holes lead to a strongly suppressed Hall signal.
+
+Beyond its role as a materials characterization tool, the Hall effect has become central to modern condensed matter physics through its quantum-mechanical extensions. Since the 2000s, research has moved beyond the classical regime to focus on quantum-mechanical phenomena, including the quantum Hall effect (QHE), the anomalous Hall effect (AHE), and the quantum anomalous Hall effect (QAHE). These effects are of major importance both for fundamental physics and for potential applications in quantum semiconductor devices and quantum computing. Multilayer graphene systems, in particular, have been shown to host all three of these effects. Novoselov \textit{et al.}~\cite{novoselov2006} observed an unconventional QHE with a Berry's phase of $2\pi$ in bilayer graphene, where the Hall resistivity $\rho_{xy}$ exhibits quantized plateaus as a function of magnetic field. Sharpe \textit{et al.}~\cite{sharpe2019} reported emergent ferromagnetism and an AHE near three-quarters filling in twisted bilayer graphene, with a hysteretic $R_{xy}$ that persists even at zero external field. More recently, Su \textit{et al.}~\cite{su2025} demonstrated moir\'{e}-driven topological electronic crystals in twisted graphene, exhibiting a quantum anomalous Hall effect characterized by quantized $\rho_{xy}$ plateaus in the absence of any applied magnetic field.
+
 
 \section{\label{sec:theory}Theoretical background}
 
-theory placeholder
+\subsection{Hall effect}
+
+Consider a rectangular semiconductor sample of thickness $d$, height $b$, and length $w$, placed in a uniform magnetic field $\mathbf{B}$ perpendicular to its face. When a current $I$ flows along the length of the sample, the moving charge carriers experience a Lorentz force $F_L = e_0 v B$, which deflects them toward one face of the sample. The resulting charge accumulation produces a transverse electric field $E_H$ (the Hall field), and equilibrium is reached when the electrical force $e_0 E_H$ balances $F_L$. The resulting transverse voltage is the Hall voltage:
+\begin{equation}
+  U_H = R_H \cdot \frac{I \cdot B}{d}
+  \label{eq:hall-voltage}
+\end{equation}
+where $R_H$ is the Hall coefficient, which depends on the material and temperature. The Hall voltage is proportional to both $I$ and $B$, and inversely proportional to the sample thickness $d$.
+
+
+\subsection{Hall coefficient}
+
+In a semiconductor containing holes (density $p$, mobility $\mu_p$) and electrons (density $n$, mobility $\mu_n$), the Hall coefficient in the weak magnetic field limit is given by (see Appendix~\ref{app:hall-derivation} for the full derivation):
+\begin{equation}
+  R_H = \frac{1}{e_0} \cdot \frac{p\mu_p^2 - n\mu_n^2}{(p\mu_p + n\mu_n)^2}
+  \label{eq:RH-general}
+\end{equation}
+where $e_0 = 1.602 \times 10^{-19}$~C is the elementary charge. Several limiting cases are of direct relevance to this experiment:
+\begin{itemize}
+  \item \textbf{p-type dominated} ($p\mu_p^2 > n\mu_n^2$): $R_H > 0$, indicating that holes are the predominant carrier.
+  \item \textbf{n-type dominated} ($n\mu_n^2 > p\mu_p^2$): $R_H < 0$, indicating that electrons are the predominant carrier.
+  \item \textbf{Sign reversal}: $R_H = 0$ when $p\mu_p^2 = n\mu_n^2$, which can occur as temperature increases and intrinsic carriers grow, partially cancelling the Hall field contributions from each carrier type.
+  \item \textbf{Extrinsic regime} ($n \approx 0$ for p-type): $R_H \approx 1/(e_0 \, p_S)$, directly relating the Hall coefficient to the dopant carrier density.
+\end{itemize}
+
+
+\subsection{Charge carrier density}
+
+When charge transport is dominated by dopant-induced holes, combining Eqs.~\eqref{eq:hall-voltage} and~\eqref{eq:RH-general} gives the hole density:
+\begin{equation}
+  p_S = \frac{B}{e_0 \cdot d} \cdot \frac{I}{U_H}
+  \label{eq:carrier-density}
+\end{equation}
+Experimentally, if $U_H$ is measured as a function of $I$ at fixed $B$, the slope $A = U_H / I = R_H B / d$ of the resulting linear relationship yields $p_S = B / (e_0 \, d \, A)$.
+
+
+\subsection{Mobility}
+
+The mobility $\mu_p$ characterizes the interaction between charge carriers and the crystal lattice, defined as the ratio of drift velocity to the applied electric field: $\mu_p = v_p / E$. The electric field along the sample is determined from the longitudinal voltage drop $U$ and the sample length $w$:
+\begin{equation}
+  E = \frac{U}{w}
+\end{equation}
+At equilibrium, the Lorentz force equals the Hall field force ($e_0 v_d B = e_0 E_H$), giving the drift velocity:
+\begin{equation}
+  v_d = \frac{U_H}{b \cdot B}
+\end{equation}
+Combining these expressions, the mobility can be estimated from measurable quantities:
+\begin{equation}
+  \mu_p = \frac{U_H \cdot w}{b \cdot B \cdot U}
+  \label{eq:mobility}
+\end{equation}
+This requires a separate measurement of the longitudinal voltage drop $U$ at a known current $I$.
+
+
+\subsection{Doping and band structure in germanium}
+
+Doping germanium with Group~III elements (e.g.\ B, Al, In, Ga) introduces acceptor levels in the band gap, creating positively charged holes in the valence band. The acceptor activation energy $E_A \approx 0.01$~eV is much smaller than the band gap $E_g \approx 0.67$~eV, so at room temperature essentially all acceptors are ionized and the hole density $p_S$ from dopants dominates over intrinsic carriers.
+
+Three temperature regimes can be distinguished for the carrier density in doped germanium:
+\begin{enumerate}
+  \item \textit{Freeze-out} (low $T$): only partial ionization of acceptors; $p_S$ increases with temperature.
+  \item \textit{Extrinsic} (intermediate $T$): all acceptor levels are occupied, $p_S$ is independent of temperature, and intrinsic carriers are negligible.
+  \item \textit{Intrinsic} (high $T$): thermal excitation across the band gap dominates, producing $n_E \approx p_E \gg p_S$, and the material behaves as an intrinsic semiconductor.
+\end{enumerate}
+The present experiment operates in the extrinsic regime at room temperature.
 
 \section{\label{sec:methods}Experimental Methods}
 
-methods placeholder
+
+\subsection{Apparatus}
+
+The experiment uses a base unit for Hall effect measurements (LD Didactic 586\,850) with interchangeable plug-in boards for three germanium samples: p-doped Ge (586\,852), n-doped Ge, and undoped (intrinsic) Ge~\cite{ld-hall-effect}. Each board houses a rectangular Ge crystal with thickness $d = 1$~mm, height $b = 10$~mm, and length $w = 20$~mm.
+
+The magnetic field is generated by an electromagnet consisting of a U-core with yoke (562\,11), a pair of bored pole pieces (560\,31), and two coils of 250 turns each (562\,13), powered by two AC/DC power supplies (0--15~V, 5~A). A separate DC power supply (0--16~V, 0--5~A) drives the sample current through the Ge crystal. Data acquisition is performed with a Sensor CASSY (524\,010) and CASSY Lab software. The magnetic field is measured independently using a Combi B-Sensor~S (524\,0381) connected via a 15-pole extension cable. Figure~\ref{fig:setup} shows the experimental setup for measuring the Hall voltage.
+
+\begin{figure}[tb]
+  \centering
+  \includegraphics[width=\columnwidth]{figures/setup}
+  \caption{Experimental setup for Hall voltage measurement. (A)~Constant magnetic field configuration: the sample current $I$ is swept while $B$ is held fixed. (B)~Constant sample current configuration (not used in this experiment): $B$ is swept while $I$ is held fixed.}
+  \label{fig:setup}
+\end{figure}
+
+
+\subsection{Magnetic field calibration}
+
+Before the Hall measurements, the relationship between the coil drive current $I_\mathrm{coil}$ and the magnetic field $B$ at the sample position was calibrated. The B-probe was placed in the air gap between the pole pieces, and $B$ was recorded while sweeping $I_\mathrm{coil}$ from 1.0~A to 5.2~A in 0.2~A steps. Both increasing and decreasing sweeps were performed to check for hysteresis. A linear fit $B = a \cdot I_\mathrm{coil} + b$ was applied to the averaged data. The intercept $b$ was identified as a zero-point offset of the Hall probe and excluded from the conversion; only the proportional relation $B = a \cdot I_\mathrm{coil}$ was used in subsequent analysis.
+
+
+\subsection{Hall voltage measurement}
+
+For each sample, the plug-in board was inserted into the base unit and the assembly was mounted between the pole pieces of the electromagnet.
+
+
+\paragraph{Compensation.}
+Before each measurement series, the Hall voltage was compensated at $B = 0$ to remove any offset arising from geometric asymmetry of the voltage contacts. The compensation knob was adjusted until $U_H = 0$ at $B=0$.
+
+
+\paragraph{Measurement procedure.}
+The coil current was set to a fixed value (corresponding to a known $B$ via the calibration), and the sample current $I$ was swept from zero to its maximum over $\sim$100~ms while recording the transverse (Hall) voltage $U_H$ at 1~ms intervals. This rapid sweep is justified because the $RL$ time constant of the sample circuit ($\tau \sim L/R \sim 1\;\mu\mathrm{H} / 480\;\Omega \approx 2$~ns) is negligible compared to the sweep duration, so the current reaches steady state at each measurement point. This was repeated for coil currents ranging from 1.0~A to 5.2~A in 0.2~A steps, producing a set of $U_H(I)$ curves at different magnetic fields. To obtain the $U_H(B)$ dependence at constant $I$, a fixed sample current was chosen and each $U_H(I)$ curve was interpolated at that current value, yielding $U_H$ as a function of $B$ without requiring a separate measurement.
+
+
+\paragraph{Longitudinal voltage.}
+The longitudinal voltage drop $U$ across the sample was recorded, providing the data needed to calculate the carrier mobility via Eq.~\eqref{eq:mobility}.
+
+The entire procedure was repeated for the n-doped Ge and undoped Ge boards. The maximum cross-current was limited to 33~mA for the doped samples (p-Ge and n-Ge) and 4~mA for the undoped sample, to avoid excessive Joule heating due to its much higher resistivity.
+
 
 \section{\label{sec:results}Results}
 
-results placeholder
+\subsection{Calibration}
+
+Figure~\ref{fig:calibration} shows the measured magnetic field $B$ as a function of the coil current $I_\mathrm{coil}$ for both increasing and decreasing sweeps. The two curves nearly overlap, indicating negligible hysteresis. A linear fit to the averaged data yields a slope of $a = 29.9$~mT/A with an intercept of $b = -5.1$~mT. The non-zero intercept is attributed to a zero-point offset of the Hall probe and is therefore excluded from the conversion. For all subsequent analysis, we use
+\begin{equation}
+  B = a \cdot I_\mathrm{coil} = (29.9 \;\mathrm{mT/A}) \cdot I_\mathrm{coil},
+\end{equation}
+so that $B = 0$ at $I_\mathrm{coil} = 0$. Over the range $I_\mathrm{coil} = 1.0$--$5.2$~A, this corresponds to $B \approx 30$--$156$~mT.
+
+\begin{figure}[tb]
+  \centering
+  \includegraphics[width=\columnwidth]{figures/fig_calibration}
+  \caption{Coil current vs.\ magnetic field calibration. Triangles indicate increasing (up) and decreasing (down) sweeps. The solid red line is the linear fit.}
+  \label{fig:calibration}
+\end{figure}
+
+\subsection{Hall voltage measurements}
+
+Figure~\ref{fig:UH_vs_I} shows the transverse (Hall) voltage $U_H$ as a function of sample current $I_s$ for different magnetic fields, measured on the p-Ge and n-Ge samples. For both samples, $U_H$ increases linearly with $I_s$ at each fixed $B$, with steeper slopes at higher fields, consistent with Eq.~\eqref{eq:hall-voltage}. The sign of $U_H$ is opposite between the two samples, confirming that the predominant carriers are holes (Ge-p) and electrons (Ge-n), respectively.
+
+\begin{figure}[tb]
+  \centering
+  \includegraphics[width=0.48\columnwidth]{figures/fig_appendix_UH_vs_I_linear_p}
+  \includegraphics[width=0.48\columnwidth]{figures/fig_appendix_UH_vs_I_linear_n}
+  \caption{Hall voltage $U_H$ vs.\ sample current $I_s$ at various magnetic fields for Ge-p (left) and Ge-n (right). Solid lines are linear fits through the origin; colors encode the magnetic field strength.}
+  \label{fig:UH_vs_I}
+\end{figure}
+
+Figure~\ref{fig:UH_vs_B} shows $U_H$ as a function of $B$ at several fixed sample currents, obtained by interpolating each $U_H(I_s)$ curve at the corresponding current. The linear dependence $U_H \propto B$ is observed for both samples, with minor deviations from linearity at higher $B$.
+
+\begin{figure}[tb]
+  \centering
+  \includegraphics[width=0.48\columnwidth]{figures/fig_appendix_UH_vs_B_linear_p}
+  \includegraphics[width=0.48\columnwidth]{figures/fig_appendix_UH_vs_B_linear_n}
+  \caption{Hall voltage $U_H$ vs.\ magnetic field $B$ at various sample currents for Ge-p (left) and Ge-n (right). Solid lines are linear fits through the origin; colors encode the sample current.}
+  \label{fig:UH_vs_B}
+\end{figure}
+
+In undoped Ge, almost no Hall voltage was observed. Even if there had been a weak Hall voltage caused by excited electrons, the low signal-to-noise ratio made it impossible to detect the Hall voltage. Since undoped Ge contains only intrinsic carriers, $p \approx n$, and since $p\mu_p^2 \approx n\mu_n^2$, the Hall coefficient is explained as being close to zero.
+
+
+\subsection{Hall coefficient and carrier density}
+
+To extract the Hall coefficient $R_H$, the full set of $(I_s, B, U_H)$ data points across all coil current settings was fit to the model $U_H = (R_H / d) \cdot I_s \cdot B$, with $R_H / d$ as the single free parameter. Figure~\ref{fig:3d_fit} shows the data and the fitted surface for each sample.
+
+\begin{figure}[tb]
+  \centering
+  \includegraphics[width=0.48\columnwidth]{figures/fig_3d_fit_p}
+  \includegraphics[width=0.48\columnwidth]{figures/fig_3d_fit_n}
+  \caption{$(I_s, B, U_H)$ data with the fitted $U_H = (R_H/d) \cdot I_s \cdot B$ surface for Ge-p (left) and Ge-n (right).}
+  \label{fig:3d_fit}
+\end{figure}
+
+\subsection{Longitudinal voltage and mobility}
+
+Figure~\ref{fig:longitudinal} shows the longitudinal voltage as a function of $B$ for both doped samples. The longitudinal voltage is approximately constant across the measured $B$ range, with mean values of $15.85 \pm 0.54$~V (Ge-p) and $15.76 \pm 0.42$~V (Ge-n). The drift velocity $v_d = U_H / (b \cdot B)$ and mobility $\mu = U_H \cdot w / (b \cdot B \cdot U)$ (Eq.~\eqref{eq:mobility}) were computed at each $B$ setting and combined via inverse-variance weighted means.
+
+\begin{figure}[tb]
+  \centering
+  \includegraphics[width=\columnwidth]{figures/fig_longitudinal_vs_B}
+  \caption{Longitudinal voltage vs.\ magnetic field $B$ for Ge-n and Ge-p.}
+  \label{fig:longitudinal}
+\end{figure}
+
+\subsection{Summary of measured quantities}
+
+Table~\ref{tab:results} summarizes all transport parameters extracted from the Hall effect and longitudinal voltage measurements.
+
+\begin{table}[tb]
+\caption{\label{tab:results}Measured transport parameters for p-doped and n-doped germanium at room temperature.}
+\begin{ruledtabular}
+\begin{tabular}{lcc}
+  Quantity & Ge-p & Ge-n \\
+  \colrule
+  $R_H$ ($10^{-3}$~m$^3$/C) & $+6.748 \pm 0.029$ & $-4.379 \pm 0.022$ \\
+  Carrier density ($10^{20}$~m$^{-3}$) & $9.251 \pm 0.040$ & $14.26 \pm 0.07$ \\
+  $v_d$ (m/s) & $23.5 \pm 0.3$ & $15.2 \pm 0.2$ \\
+  $\mu$ (cm$^2$/(V$\cdot$s)) & $295 \pm 5$ & $180 \pm 4$ \\
+\end{tabular}
+\end{ruledtabular}
+\end{table}
+
+
 
 \section{\label{sec:discussion}Discussion}
 
-discussion placeholder
+\subsection{Intercept term of the calibration line}
+
+The linear fit to the calibration data (Fig.~\ref{fig:calibration}) yields a non-zero intercept $b = -5.1$~mT. A residual magnetic field was measured even when the coil current was set to zero, and this reading did not change when the current direction was reversed or the orientation of the gaussmeter probe was flipped. This rules out a stray field from the electromagnet and indicates that the offset originates from the Hall probe itself. It can be a built-in zero-point drift or residual magnetization of the sensor element. The intercept was therefore excluded from the $B(I_\mathrm{coil})$ conversion used in the analysis.
+
+
+\subsection{Dependence of transverse and longitudinal voltage on magnetic field}
+
+The transverse voltage was found to be linear in both $I_s$ and $B$ (Figs.~\ref{fig:UH_vs_I} and~\ref{fig:UH_vs_B}), consistent with the weak-field approximation $\mu B \ll 1$ used to derive Eq.~\eqref{eq:RH-general}. With the measured mobilities, the dimensionless parameter $\mu B$ ranges from $5 \times 10^{-4}$ to $5 \times 10^{-3}$ across the full $B$ range, so the second-order corrections of order $(\mu B)^2 \sim 10^{-5}$ are entirely negligible and the linear Hall response is expected.
+
+The longitudinal voltage, by contrast, was approximately constant over the measured $B$ range (Fig.~\ref{fig:longitudinal}). This is also consistent with the weak-field picture. In the Drude model with two carriers, the longitudinal resistivity $\rho_{xx}$ acquires only a quadratic correction in $B$ (see Eq.~\eqref{eq:rho-xx} in the Appendix), which is of order $(\mu B)^2 \sim 10^{-5}$ and thus far below the measurement sensitivity.
+
+
+\subsection{Scale of Hall coefficient}
+
+The measured Hall coefficients $|R_H| \sim 10^{-3}$~m$^3$/C are characteristic of doped semiconductors and are roughly $10^7$ times larger than the Hall coefficient of a typical metal such as silver ($R_H = 8.9 \times 10^{-11}$~m$^3$/C)~\cite{ashcroft1976}. This difference is a direct consequence of the vastly different carrier concentrations: metals have a free-electron density of order $10^{28}$~m$^{-3}$, whereas the doped Ge samples studied here have carrier densities of order $10^{20}$--$10^{21}$~m$^{-3}$. Since $R_H \approx 1/(e_0 \, n)$ in the extrinsic regime, the lower carrier density produces a proportionally larger Hall coefficient and, consequently, a much larger and more easily measurable Hall voltage.
+
+
+\subsection{Comparison of hole and electron mobilities}
+
+Table~\ref{tab:results} shows that the hole mobility in Ge-p ($\mu_p = 295$~cm$^2$/(V$\cdot$s)) is higher than the electron mobility in Ge-n ($\mu_n = 180$~cm$^2$/(V$\cdot$s)). This reversal of the usual ordering ($\mu_n > \mu_p$ in pure Ge) may be attributed to the difference in doping concentrations: Ge-p has a lower carrier density ($9.3 \times 10^{20}$~m$^{-3}$) than Ge-n ($1.4 \times 10^{21}$~m$^{-3}$), suggesting weaker impurity scattering in the Ge-p sample.
+
+\subsection{Possible sources of error}
+
+The sample temperature was not controlled during the measurement. With a sample resistance of $R \approx 480$~$\Omega$ and a maximum current of 30~mA, the Joule dissipation reaches $P = I^2 R \approx 430$~mW. The laboratory manual warns that the sample may become hot~\cite{kaist-hall-manual}, and a temperature rise would increase intrinsic carrier generation, affecting the Hall coefficient. Specifically, an increase in intrinsic carrier concentration at elevated temperatures could lead to a partial cancellation of the Hall voltage, reducing the effective $R_H$ and causing an overestimation of the dopant carrier density.
+
+
+
+
+% \subsection{Uncertainty in $R_H$}
+
+% The total uncertainty in the Hall coefficient combines a statistical contribution from the fit residuals ($\sigma_{R_H,\mathrm{stat}}$) and a calibration contribution propagated from the slope uncertainty ($\sigma_{R_H,\mathrm{cal}}$). The sample thickness $d$ is taken as exact. Table~\ref{tab:RH-budget} summarizes the error budget.
+
+% \begin{table}[tb]
+% \caption{\label{tab:RH-budget}Uncertainty budget for the Hall coefficient $R_H$. The statistical component $\sigma_{R_H,\mathrm{stat}}$ is derived from the scatter of fit residuals in the origin-constrained least-squares fit $U_H = (R_H/d)\,I_s\,B$. The calibration component $\sigma_{R_H,\mathrm{cal}}$ is propagated from the slope uncertainty of the $B(I_\mathrm{coil})$ calibration via numerical partial derivatives. The sample thickness $d = 1$~mm is taken as exact.}
+% \begin{ruledtabular}
+% \begin{tabular}{lcc}
+%   Source & Ge-p & Ge-n \\
+%   \colrule
+%   $\sigma_{R_H,\mathrm{stat}}$ (m$^3$/C) & $1.27 \times 10^{-5}$ & $1.34 \times 10^{-5}$ \\
+%   $\sigma_{R_H,\mathrm{cal}}$ (m$^3$/C)  & $2.64 \times 10^{-5}$ & $1.71 \times 10^{-5}$ \\
+%   $\sigma_{R_H,\mathrm{total}}$ (m$^3$/C)& $2.93 \times 10^{-5}$ & $2.18 \times 10^{-5}$ \\
+%   Relative uncertainty & 0.43\% & 0.50\% \\
+% \end{tabular}
+% \end{ruledtabular}
+% \end{table}
+
+% The calibration uncertainty dominates over the statistical scatter for both samples. The calibration contribution arises from the slope uncertainty of the $B(I_\mathrm{coil})$ fit, which shifts all $B$ values coherently, and is propagated to $\hat{\alpha} = R_H / d$ via numerical partial derivatives. Because the intercept $b$ is excluded from the conversion (Sec.~\ref{sec:results}), it does not contribute to the error budget.
+
+
+
+
+
+\subsection{Comparison to quantum extensions of the Hall effect}
+
+Figure~\ref{fig:qhe} shows the quantum Hall effect~\cite{novoselov2006}, anomalous Hall effect~\cite{sharpe2019}, and quantum anomalous Hall effect~\cite{su2025} observed in graphene systems, where the Hall resistivity exhibits quantized plateaus rather than the linear dependence on $B$. In our experiment, no such plateaus are observed and $U_H$ remains strictly linear in both $I$ and $B$. This is expected, as quantum Hall phenomena require cryogenic temperatures and much stronger magnetic fields (or engineered moir\'{e} superlattices) than the room-temperature, $B < 160$~mT conditions of the present measurement.
+
+\begin{figure}[tb]
+  \centering
+  \includegraphics[width=\columnwidth]{figures/qheaheaqhe.png}
+  \caption{Quantum extensions of the Hall effect in graphene systems. (A)~Quantum Hall effect in bilayer graphene: $\rho_{xy}$ shows quantized plateaus at $h/4e^2$, $h/8e^2$, $h/12e^2$ with Shubnikov--de~Haas oscillations in $\rho_{xx}$~\cite{novoselov2006}. (B)~Anomalous Hall effect in twisted bilayer graphene: hysteretic $R_{xy}$ persists at $B = 0$~\cite{sharpe2019}. (C)~Quantum anomalous Hall effect in twisted graphene: $\rho_{yx}$ is quantized at $\pm h/e^2$ without any applied field~\cite{su2025}.}
+  \label{fig:qhe}
+\end{figure}
+
+
 
 \section{\label{sec:conclusion}Conclusion}
 
-conclusion placeholder
+The Hall effect was measured in p-doped and n-doped germanium, and the proportionality $U_H \propto I \cdot B$ predicted by the Drude model was confirmed experimentally. The sign of the Hall coefficient correctly identifies the predominant carrier type: $R_H > 0$ (holes) for Ge-p and $R_H < 0$ (electrons) for Ge-n. The extracted carrier densities are $p_S = 9.3 \times 10^{20}$~m$^{-3}$ and $n_S = 1.4 \times 10^{21}$~m$^{-3}$, and the mobilities are $\mu_p = 295$~cm$^2$/(V$\cdot$s) and $\mu_n = 180$~cm$^2$/(V$\cdot$s), respectively. The observation that $\mu_p > \mu_n$, contrary to the intrinsic ordering in pure Ge, is consistent with the higher doping concentration in the n-type sample enhancing impurity scattering. In undoped Ge, the Hall voltage was negligibly small, consistent with the near-cancellation of hole and electron contributions to the Hall coefficient when $p \approx n$. The Joule heating of the sample during current sweeps remains an uncontrolled systematic effect that could be addressed in future measurements by monitoring the sample temperature.
 
-
-
-
-
-% \begin{table}[b]%The best place to locate the table environment is directly after its first reference in text
-% \caption{\label{tab:table1}%
-% A table that fits into a single column of a two-column layout. 
-% Note that REV\TeX~4 adjusts the intercolumn spacing so that the table fills the
-% entire width of the column. Table captions are numbered
-% automatically. 
-% This table illustrates left-, center-, decimal- and right-aligned columns,
-% along with the use of the \texttt{ruledtabular} environment which sets the 
-% Scotch (double) rules above and below the alignment, per APS style.
-% }
-% \begin{ruledtabular}
-% \begin{tabular}{lcdr}
-% \textrm{Left\footnote{Note a.}}&
-% \textrm{Centered\footnote{Note b.}}&
-% \multicolumn{1}{c}{\textrm{Decimal}}&
-% \textrm{Right}\\
-% \colrule
-% 1 & 2 & 3.001 & 4\\
-% 10 & 20 & 30 & 40\\
-% 100 & 200 & 300.0 & 400\\
-% \end{tabular}
-% \end{ruledtabular}
-% \end{table}
-% and Fig.~\ref{fig:epsart}.%
-% \begin{figure}[b]
-% \includegraphics{fig_1}% Here is how to import EPS art
-% \caption{\label{fig:epsart} A figure caption. The figure captions are
-% automatically numbered.}
-% \end{figure}
-
-
-
-% \begin{figure*}
-% \includegraphics{fig_2}% Here is how to import EPS art
-% \caption{\label{fig:wide}Use the figure* environment to get a wide
-% figure that spans the page in \texttt{twocolumn} formatting.}
-% \end{figure*}
-
-
-% \begin{table*}
-% \caption{\label{tab:table3}This is a wide table that spans the full page
-% width in a two-column layout. It is formatted using the
-% \texttt{table*} environment. It also demonstates the use of
-% \textbackslash\texttt{multicolumn} in rows with entries that span
-% more than one column.}
-% \begin{ruledtabular}
-% \begin{tabular}{ccccc}
-%  &\multicolumn{2}{c}{$D_{4h}^1$}&\multicolumn{2}{c}{$D_{4h}^5$}\\
-%  Ion&1st alternative&2nd alternative&lst alternative
-% &2nd alternative\\ \hline
-%  K&$(2e)+(2f)$&$(4i)$ &$(2c)+(2d)$&$(4f)$ \\
-%  Mn&$(2g)$\footnote{The $z$ parameter of these positions is $z\sim\frac{1}{4}$.}
-%  &$(a)+(b)+(c)+(d)$&$(4e)$&$(2a)+(2b)$\\
-%  Cl&$(a)+(b)+(c)+(d)$&$(2g)$\footnotemark[1]
-%  &$(4e)^{\text{a}}$\\
-%  He&$(8r)^{\text{a}}$&$(4j)^{\text{a}}$&$(4g)^{\text{a}}$\\
-%  Ag& &$(4k)^{\text{a}}$& &$(4h)^{\text{a}}$\\
-% \end{tabular}
-% \end{ruledtabular}
-% \end{table*}
-
-
-% \begin{table}[b]
-% \caption{\label{tab:table4}%
-% Numbers in columns Three--Five are aligned with the ``d'' column specifier 
-% (requires the \texttt{dcolumn} package). 
-% Non-numeric entries (those entries without a ``.'') in a ``d'' column are aligned on the decimal point. 
-% Use the ``D'' specifier for more complex layouts. }
-% \begin{ruledtabular}
-% \begin{tabular}{ccddd}
-% One&Two&
-% \multicolumn{1}{c}{\textrm{Three}}&
-% \multicolumn{1}{c}{\textrm{Four}}&
-% \multicolumn{1}{c}{\textrm{Five}}\\
-% %\mbox{Three}&\mbox{Four}&\mbox{Five}\\
-% \hline
-% one&two&\mbox{three}&\mbox{four}&\mbox{five}\\
-% He&2& 2.77234 & 45672. & 0.69 \\
-% C\footnote{Some tables require footnotes.}
-%   &C\footnote{Some tables need more than one footnote.}
-%   & 12537.64 & 37.66345 & 86.37 \\
-% \end{tabular}
-% \end{ruledtabular}
-% \end{table}
-
-
-% Tables~\ref{tab:table1}, \ref{tab:table3}, \ref{tab:table4}, and \ref{tab:table2}%
-% \begin{table}[b]
-% \caption{\label{tab:table2}
-% A table with numerous columns that still fits into a single column. 
-% Here, several entries share the same footnote. 
-% Inspect the \LaTeX\ input for this table to see exactly how it is done.}
-% \begin{ruledtabular}
-% \begin{tabular}{cccccccc}
-%  &$r_c$ (\AA)&$r_0$ (\AA)&$\kappa r_0$&
-%  &$r_c$ (\AA) &$r_0$ (\AA)&$\kappa r_0$\\
-% \hline
-% Cu& 0.800 & 14.10 & 2.550 &Sn\footnotemark[1]
-% & 0.680 & 1.870 & 3.700 \\
-% Ag& 0.990 & 15.90 & 2.710 &Pb\footnotemark[2]
-% & 0.450 & 1.930 & 3.760 \\
-% Au& 1.150 & 15.90 & 2.710 &Ca\footnotemark[3]
-% & 0.750 & 2.170 & 3.560 \\
-% Mg& 0.490 & 17.60 & 3.200 &Sr\footnotemark[4]
-% & 0.900 & 2.370 & 3.720 \\
-% Zn& 0.300 & 15.20 & 2.970 &Li\footnotemark[2]
-% & 0.380 & 1.730 & 2.830 \\
-% Cd& 0.530 & 17.10 & 3.160 &Na\footnotemark[5]
-% & 0.760 & 2.110 & 3.120 \\
-% Hg& 0.550 & 17.80 & 3.220 &K\footnotemark[5]
-% &  1.120 & 2.620 & 3.480 \\
-% Al& 0.230 & 15.80 & 3.240 &Rb\footnotemark[3]
-% & 1.330 & 2.800 & 3.590 \\
-% Ga& 0.310 & 16.70 & 3.330 &Cs\footnotemark[4]
-% & 1.420 & 3.030 & 3.740 \\
-% In& 0.460 & 18.40 & 3.500 &Ba\footnotemark[5]
-% & 0.960 & 2.460 & 3.780 \\
-% Tl& 0.480 & 18.90 & 3.550 & & & & \\
-% \end{tabular}
-% \end{ruledtabular}
-% \footnotetext[1]{Here's the first, from Ref.~\onlinecite{feyn54}.}
-% \footnotetext[2]{Here's the second.}
-% \footnotetext[3]{Here's the third.}
-% \footnotetext[4]{Here's the fourth.}
-% \footnotetext[5]{And etc.}
-% \end{table}
 
 
 
 \appendix
 
-\section{Appendixes}
+\section{\label{app:hall-derivation}Derivation of the Hall Coefficient}
 
-appendix placeholder
+Consider a rectangular semiconductor sample with magnetic field $\mathbf{B} = B\hat{z}$ and current flowing in the $x$-direction. The sample contains holes with density $p$ and electrons with density $n$.
 
-% \nocite{*}
+\subsection{Equations of motion}
+
+In the Drude model at steady state, the balance of electric force, Lorentz force, and lattice scattering gives:
+
+For holes ($+e_0$):
+\begin{equation}
+  e_0(\mathbf{E} + \mathbf{v}_p \times \mathbf{B}) - \frac{e_0}{\mu_p}\mathbf{v}_p = 0
+\end{equation}
+
+For electrons ($-e_0$):
+\begin{equation}
+  -e_0(\mathbf{E} + \mathbf{v}_n \times \mathbf{B}) - \frac{e_0}{\mu_n}\mathbf{v}_n = 0
+\end{equation}
+where the $e_0/\mu$ term represents lattice scattering damping, following from the definition $\mu = e_0 \tau / m^*$.
+
+\subsection{Weak magnetic field approximation}
+
+With $\mathbf{B} = B\hat{z}$, expanding in components and neglecting second-order terms in $\mu B$ ($\mu B \ll 1$):
+
+Hole drift velocities:
+\begin{align}
+  v_{px} &\approx \mu_p E_x + \mu_p^2 B\, E_y \\
+  v_{py} &\approx \mu_p E_y - \mu_p^2 B\, E_x
+\end{align}
+
+Electron drift velocities:
+\begin{align}
+  v_{nx} &\approx -\mu_n E_x + \mu_n^2 B\, E_y \\
+  v_{ny} &\approx -\mu_n E_y - \mu_n^2 B\, E_x
+\end{align}
+
+\subsection{Current density}
+
+The total current density is the sum of hole and electron contributions:
+\begin{equation}
+  \mathbf{J} = e_0(p\,\mathbf{v}_p - n\,\mathbf{v}_n)
+\end{equation}
+
+The $y$-component becomes:
+\begin{equation}
+  J_y = e_0 E_y(p\mu_p + n\mu_n) - e_0 B E_x(p\mu_p^2 - n\mu_n^2)
+\end{equation}
+
+and the $x$-component (to leading order):
+\begin{equation}
+  J_x \approx e_0 E_x(p\mu_p + n\mu_n)
+\end{equation}
+
+\subsection{Hall condition and result}
+
+The defining condition for the Hall effect is zero net current in the $y$-direction ($J_y = 0$), which gives the Hall field:
+\begin{equation}
+  E_y = \frac{p\mu_p^2 - n\mu_n^2}{p\mu_p + n\mu_n} \cdot B \cdot E_x
+\end{equation}
+
+Substituting into the definition $R_H \equiv E_y / (J_x B)$:
+\begin{equation}
+  R_H = \frac{1}{e_0} \cdot \frac{p\mu_p^2 - n\mu_n^2}{(p\mu_p + n\mu_n)^2}
+  \label{eq:hall-coeff}
+\end{equation}
+
+\subsection{Longitudinal magnetoresistance}
+
+The Hall field $E_y$ also modifies the longitudinal transport. To find the effective resistivity $\rho_{xx}$, we substitute the Hall condition back into $J_x$.
+
+Including the $E_y$-dependent terms from the drift velocities (the $\mu^2 B\, E_y$ contributions in $v_{px}$ and $v_{nx}$), the full $x$-component of current density is:
+\begin{equation}
+  J_x = e_0 E_x (p\mu_p + n\mu_n) + e_0 B\, E_y (p\mu_p^2 + n\mu_n^2)
+\end{equation}
+
+Inserting the Hall field $E_y = \dfrac{p\mu_p^2 - n\mu_n^2}{p\mu_p + n\mu_n} \cdot B\, E_x$ from the previous section:
+\begin{equation}
+  J_x = e_0 E_x \left[ (p\mu_p + n\mu_n) + \frac{(p\mu_p^2 - n\mu_n^2)(p\mu_p^2 + n\mu_n^2)}{p\mu_p + n\mu_n}\, B^2 \right]
+\end{equation}
+
+The longitudinal resistivity $\rho_{xx} = E_x / J_x$ follows by inverting and expanding to order $B^2$:
+\begin{equation}
+  \rho_{xx}(B) = \rho_0\left[ 1 - \frac{(p\mu_p^2 - n\mu_n^2)(p\mu_p^2 + n\mu_n^2)}{(p\mu_p + n\mu_n)^2}\, B^2 \right] + \mathcal{O}(B^4)
+\end{equation}
+where $\rho_0 = \bigl[e_0(p\mu_p + n\mu_n)\bigr]^{-1}$ is the zero-field resistivity.
+
+Noting the algebraic identity $(a-b)(a+b) = a^2 - b^2$ with $a = p\mu_p^2$, $b = n\mu_n^2$, this can equivalently be written as:
+\begin{equation}
+  \rho_{xx}(B) = \rho_0 \left[ 1 - \frac{(p\mu_p^2)^2 - (n\mu_n^2)^2}{(p\mu_p + n\mu_n)^2}\, B^2 \right]
+  \label{eq:rho-xx}
+\end{equation}
+In the single-carrier limit ($n = 0$ or $p = 0$), the $B^2$ correction vanishes identically: a single Hall field can fully compensate the Lorentz force for one carrier species, so no magnetoresistance appears within the original Drude model.
 
 \bibliography{main}
+
+
+
+
 
 \end{document}

@@ -1,0 +1,121 @@
+%apsrev4-2.bst 2019-01-14 (MD) hand-edited version of apsrev4-1.bst
+%Control: key (0)
+%Control: author (8) initials jnrlst
+%Control: editor formatted (1) identically to author
+%Control: production of article title (0) allowed
+%Control: page (0) single
+%Control: year (1) truncated
+%Control: production of eprint (0) enabled
+\begin{thebibliography}{6}%
+\makeatletter
+\providecommand \@ifxundefined [1]{%
+ \@ifx{#1\undefined}
+}%
+\providecommand \@ifnum [1]{%
+ \ifnum #1\expandafter \@firstoftwo
+ \else \expandafter \@secondoftwo
+ \fi
+}%
+\providecommand \@ifx [1]{%
+ \ifx #1\expandafter \@firstoftwo
+ \else \expandafter \@secondoftwo
+ \fi
+}%
+\providecommand \natexlab [1]{#1}%
+\providecommand \enquote  [1]{``#1''}%
+\providecommand \bibnamefont  [1]{#1}%
+\providecommand \bibfnamefont [1]{#1}%
+\providecommand \citenamefont [1]{#1}%
+\providecommand \href@noop [0]{\@secondoftwo}%
+\providecommand \href [0]{\begingroup \@sanitize@url \@href}%
+\providecommand \@href[1]{\@@startlink{#1}\@@href}%
+\providecommand \@@href[1]{\endgroup#1\@@endlink}%
+\providecommand \@sanitize@url [0]{\catcode `\\12\catcode `\$12\catcode
+  `\&12\catcode `\#12\catcode `\^12\catcode `\_12\catcode `\%12\relax}%
+\providecommand \@@startlink[1]{}%
+\providecommand \@@endlink[0]{}%
+\providecommand \url  [0]{\begingroup\@sanitize@url \@url }%
+\providecommand \@url [1]{\endgroup\@href {#1}{\urlprefix }}%
+\providecommand \urlprefix  [0]{URL }%
+\providecommand \Eprint [0]{\href }%
+\providecommand \doibase [0]{https://doi.org/}%
+\providecommand \selectlanguage [0]{\@gobble}%
+\providecommand \bibinfo  [0]{\@secondoftwo}%
+\providecommand \bibfield  [0]{\@secondoftwo}%
+\providecommand \translation [1]{[#1]}%
+\providecommand \BibitemOpen [0]{}%
+\providecommand \bibitemStop [0]{}%
+\providecommand \bibitemNoStop [0]{.\EOS\space}%
+\providecommand \EOS [0]{\spacefactor3000\relax}%
+\providecommand \BibitemShut  [1]{\csname bibitem#1\endcsname}%
+\let\auto@bib@innerbib\@empty
+%</preamble>
+\bibitem [{\citenamefont {Novoselov}\ \emph {et~al.}(2006)\citenamefont
+  {Novoselov}, \citenamefont {McCann}, \citenamefont {Morozov}, \citenamefont
+  {Fal'ko}, \citenamefont {Katsnelson}, \citenamefont {Zeitler}, \citenamefont
+  {Jiang}, \citenamefont {Schedin},\ and\ \citenamefont
+  {Geim}}]{novoselov2006}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {K.~S.}\ \bibnamefont
+  {Novoselov}}, \bibinfo {author} {\bibfnamefont {E.}~\bibnamefont {McCann}},
+  \bibinfo {author} {\bibfnamefont {S.~V.}\ \bibnamefont {Morozov}}, \bibinfo
+  {author} {\bibfnamefont {V.~I.}\ \bibnamefont {Fal'ko}}, \bibinfo {author}
+  {\bibfnamefont {M.~I.}\ \bibnamefont {Katsnelson}}, \bibinfo {author}
+  {\bibfnamefont {U.}~\bibnamefont {Zeitler}}, \bibinfo {author} {\bibfnamefont
+  {D.}~\bibnamefont {Jiang}}, \bibinfo {author} {\bibfnamefont
+  {F.}~\bibnamefont {Schedin}},\ and\ \bibinfo {author} {\bibfnamefont {A.~K.}\
+  \bibnamefont {Geim}},\ }\bibfield  {title} {\bibinfo {title} {Unconventional
+  quantum {H}all effect and {B}erry's phase of $2\pi$ in bilayer graphene},\
+  }\href {https://doi.org/10.1038/nphys245} {\bibfield  {journal} {\bibinfo
+  {journal} {Nature Physics}\ }\textbf {\bibinfo {volume} {2}},\ \bibinfo
+  {pages} {177} (\bibinfo {year} {2006})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Sharpe}\ \emph {et~al.}(2019)\citenamefont {Sharpe},
+  \citenamefont {Fox}, \citenamefont {Barnard}, \citenamefont {Finney},
+  \citenamefont {Watanabe}, \citenamefont {Taniguchi}, \citenamefont
+  {Kastner},\ and\ \citenamefont {Goldhaber-Gordon}}]{sharpe2019}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {A.~L.}\ \bibnamefont
+  {Sharpe}}, \bibinfo {author} {\bibfnamefont {E.~J.}\ \bibnamefont {Fox}},
+  \bibinfo {author} {\bibfnamefont {A.~W.}\ \bibnamefont {Barnard}}, \bibinfo
+  {author} {\bibfnamefont {J.}~\bibnamefont {Finney}}, \bibinfo {author}
+  {\bibfnamefont {K.}~\bibnamefont {Watanabe}}, \bibinfo {author}
+  {\bibfnamefont {T.}~\bibnamefont {Taniguchi}}, \bibinfo {author}
+  {\bibfnamefont {M.~A.}\ \bibnamefont {Kastner}},\ and\ \bibinfo {author}
+  {\bibfnamefont {D.}~\bibnamefont {Goldhaber-Gordon}},\ }\bibfield  {title}
+  {\bibinfo {title} {Emergent ferromagnetism near three-quarters filling in
+  twisted bilayer graphene},\ }\href {https://doi.org/10.1126/science.aaw3780}
+  {\bibfield  {journal} {\bibinfo  {journal} {Science}\ }\textbf {\bibinfo
+  {volume} {365}},\ \bibinfo {pages} {605} (\bibinfo {year}
+  {2019})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Su}\ \emph {et~al.}(2025)\citenamefont {Su},
+  \citenamefont {Waters}, \citenamefont {Zhou} \emph {et~al.}}]{su2025}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {R.}~\bibnamefont
+  {Su}}, \bibinfo {author} {\bibfnamefont {D.}~\bibnamefont {Waters}}, \bibinfo
+  {author} {\bibfnamefont {B.}~\bibnamefont {Zhou}}, \emph {et~al.},\
+  }\bibfield  {title} {\bibinfo {title} {Moir\'{e}-driven topological
+  electronic crystals in twisted graphene},\ }\href
+  {https://doi.org/10.1038/s41586-024-08239-6} {\bibfield  {journal} {\bibinfo
+  {journal} {Nature}\ }\textbf {\bibinfo {volume} {637}},\ \bibinfo {pages}
+  {1084} (\bibinfo {year} {2025})}\BibitemShut {NoStop}%
+\bibitem [{ld-()}]{ld-hall-effect}%
+  \BibitemOpen
+  \href@noop {} {\emph {\bibinfo {title} {P7.2.1.4 Hall Effect in
+  Semiconductors}}},\ \bibinfo {organization} {LD Didactic GmbH},\ \bibinfo
+  {address} {Huerth, Germany},\ \bibinfo {note} {experiment manual
+  P7.2.1.4}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Ashcroft}\ and\ \citenamefont
+  {Mermin}(1976)}]{ashcroft1976}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {N.~W.}\ \bibnamefont
+  {Ashcroft}}\ and\ \bibinfo {author} {\bibfnamefont {N.~D.}\ \bibnamefont
+  {Mermin}},\ }\href@noop {} {\emph {\bibinfo {title} {Solid State Physics}}}\
+  (\bibinfo  {publisher} {Harcourt College Publishers},\ \bibinfo {address}
+  {New York},\ \bibinfo {year} {1976})\BibitemShut {NoStop}%
+\bibitem [{kai(2026)}]{kaist-hall-manual}%
+  \BibitemOpen
+  \href@noop {} {\emph {\bibinfo {title} {Hall Effect in p-{Ge} \& Band Gap of
+  Germanium}}},\ \bibinfo {organization} {KAIST Department of Physics}
+  (\bibinfo {year} {2026}),\ \bibinfo {note} {pH351 Physics Lab III, Experiment
+  S2}\BibitemShut {NoStop}%
+\end{thebibliography}%

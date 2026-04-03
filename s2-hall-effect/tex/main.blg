@@ -1,0 +1,74 @@
+This is BibTeX, Version 0.99e
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: main.aux
+Reallocating 'name_of_file' (item size: 1) to 10 items.
+Reallocating 'name_of_file' (item size: 1) to 5 items.
+Reallocating 'name_of_file' (item size: 1) to 10 items.
+The style file: apsrev4-2.bst
+Reallocating 'singl_function' (item size: 4) to 100 items.
+Reallocating 'singl_function' (item size: 4) to 100 items.
+Reallocating 'singl_function' (item size: 4) to 100 items.
+Reallocating 'singl_function' (item size: 4) to 100 items.
+Reallocating 'singl_function' (item size: 4) to 100 items.
+Reallocating 'singl_function' (item size: 4) to 100 items.
+Reallocating 'singl_function' (item size: 4) to 100 items.
+Reallocating 'wiz_functions' (item size: 4) to 6000 items.
+Reallocating 'singl_function' (item size: 4) to 100 items.
+Database file #1: mainNotes.bib
+Database file #2: main.bib
+control{REVTEX42Control}, control.key{N/A}, control.author{N/A}, control.editor{N/A}, control.title{N/A}, control.pages{N/A}, control.year{N/A}, control.eprint{N/A}, 
+control{apsrev42Control}, control.key{N/A}, control.author{08}, control.editor{1}, control.title{0}, control.pages{0}, control.year{1}, control.eprint{N/A}, 
+Warning--jnrlst (dependency: not reversed) set 1
+Reallocating 'singl_function' (item size: 4) to 100 items.
+Reallocating 'wiz_functions' (item size: 4) to 9000 items.
+apsrev4-2.bst 2019-01-14 (MD) hand-edited version of apsrev4-1.bst
+Control: key (0) 
+Control: author (8) initials jnrlst
+Control: editor formatted (1) identically to author
+Control: production of article title (0) allowed
+Control: page (0) single
+Control: year (1) truncated
+Control: production of eprint (0) enabled
+Warning--empty year in ld-hall-effect
+You've used 8 entries,
+            6079 wiz_defined-function locations,
+            1672 strings with 16110 characters,
+and the built_in function-call counts, 7265 in all, are:
+= -- 424
+> -- 200
+< -- 64
++ -- 66
+- -- 66
+* -- 1141
+:= -- 651
+add.period$ -- 6
+call.type$ -- 8
+change.case$ -- 29
+chr.to.int$ -- 18
+cite$ -- 13
+duplicate$ -- 724
+empty$ -- 489
+format.name$ -- 106
+if$ -- 1401
+int.to.chr$ -- 1
+int.to.str$ -- 15
+missing$ -- 106
+newline$ -- 70
+num.names$ -- 12
+pop$ -- 296
+preamble$ -- 1
+purify$ -- 29
+quote$ -- 0
+skip$ -- 275
+stack$ -- 0
+substring$ -- 130
+swap$ -- 666
+text.length$ -- 22
+text.prefix$ -- 0
+top$ -- 10
+type$ -- 100
+warning$ -- 2
+while$ -- 22
+width$ -- 0
+write$ -- 102
+(There were 2 warnings)
